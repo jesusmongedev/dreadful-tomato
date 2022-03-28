@@ -1,0 +1,31 @@
+@import '../../index.scss';
+
+.section {
+  position: relative;
+  &__tittle {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.6em 1em;
+    background-color: $primary-color;
+    color: #fff;
+    font-size: $text-lg;
+    &--opacity {
+      opacity: 0.8;
+    }
+  }
+  &__img--filter {
+    filter: brightness(70%);
+  }
+}
+
+@media screen and (min-width: $bp-tablet) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .section__tittle {
+      font-size: 2rem;
+    }
+  }
+}
