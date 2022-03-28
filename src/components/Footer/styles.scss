@@ -1,9 +1,38 @@
+@import '../../index.scss';
+
 .footer {
+  padding: 2em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
   color: #fff;
   &__logo {
     width: 8em;
+  }
+  &-links {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.7em;
+    &__item {
+      list-style: none;
+    }
+  }
+  &-app {
+    display: flex;
+    gap: 1em;
+  }
+  &__copyright {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: $text-sm;
+    color: $dark-gray;
+  }
+  @media screen and (min-width: $bp-tablet) {
+    &-links {
+      flex-direction: row;
+    }
   }
 }
