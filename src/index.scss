@@ -1,12 +1,21 @@
+// css variables
+// Colors
+$primary-color: #c42521;
+$bg-color: #121212;
+$dark-gray: #9aa0a6;
+// typography
+$text-sm: 0.875rem;
+$text-md: 1rem;
+$text-lg: 1.125rem;
+// media queries
+$bp-tablet: 768px;
+
 /* Reset default user agent's styles */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
-// css variables
-$bg-color: #121212;
 
 body {
   margin: 0;
@@ -17,4 +26,9 @@ body {
 .wrapper {
   max-width: 1024px;
   margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
