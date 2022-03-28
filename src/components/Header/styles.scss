@@ -1,0 +1,58 @@
+// Css variables
+$primary-color: #c42521;
+$bp-tablet: 768px;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+  padding: 1.25em 1em;
+  &__logo {
+    width: 8em;
+  }
+  &-actions {
+    display: flex;
+    gap: 1em;
+    &__user-login {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75em;
+      padding: 0 0.75em;
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff;
+      color: #fff;
+      font-weight: bold;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .primary-button {
+      padding: 0.4em 1em;
+      border-radius: 5em;
+      border: none;
+      background: linear-gradient(
+        -15deg,
+        $primary-color,
+        $primary-color,
+        $primary-color,
+        white
+      );
+      color: #fff;
+      font-weight: bold;
+      font-family: inherit;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (min-width: $bp-tablet) {
+    & {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1em;
+    }
+    &__logo {
+      width: 12em;
+    }
+  }
+}
