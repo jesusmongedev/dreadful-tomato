@@ -22,7 +22,11 @@
   }
   &-app {
     display: flex;
+    justify-content: center;
     gap: 1em;
+    &__img {
+      width: 9rem;
+    }
   }
   &__copyright {
     margin: 1rem 0;
@@ -30,9 +34,24 @@
     font-size: $text-sm;
     color: $dark-gray;
   }
-  @media screen and (min-width: $bp-tablet) {
-    &-links {
+  @media screen and (min-width: $bp-desktop) {
+    & {
       flex-direction: row;
+      justify-content: space-around;
+      &-top {
+        text-align: center;
+      }
+      &__logo {
+        width: 12rem;
+      }
+      &-links {
+        margin: 1rem 0 0 0;
+        flex-direction: row;
+        gap: 1.5em;
+      }
+      &__copyright {
+        margin: 1rem 0 0 0;
+      }
     }
   }
 }
