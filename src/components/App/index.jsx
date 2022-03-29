@@ -1,7 +1,22 @@
-import Layout from '../Layout'
+import { Route, Routes } from 'react-router-dom'
+import HomeMainContent from '../HomeMainContent'
+import Header from '../Header'
+import Footer from '../Footer/Index'
+import MoviesPage from '../MoviesPage/Index'
+import SeriesPage from '../SeriesPage'
 
 const App = () => {
-  return <Layout />
+  return (
+    <div className="wrapper">
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomeMainContent />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/series" element={<SeriesPage />} />
+      </Routes>
+      <Footer />
+    </div>
+  )
 }
 
 export default App
