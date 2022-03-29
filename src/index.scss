@@ -9,6 +9,7 @@ $text-md: 1rem;
 $text-lg: 1.125rem;
 // media queries
 $bp-tablet: 768px;
+$bp-desktop: 1024px;
 
 /* Reset default user agent's styles */
 *,
@@ -19,12 +20,12 @@ $bp-tablet: 768px;
 
 body {
   margin: 0;
-  font-family: 'Asap', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: $bg-color;
 }
 
 .wrapper {
-  max-width: 1024px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
