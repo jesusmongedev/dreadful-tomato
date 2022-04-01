@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomeMainContent from '../HomeMainContent'
 import Header from '../Header'
 import Footer from '../Footer/Index'
-import MoviesPage from '../MoviesPage/Index'
+import MoviesPage from '../MoviesPage'
 import SeriesPage from '../SeriesPage'
 
 const App = () => {
