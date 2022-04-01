@@ -6,7 +6,7 @@ import './styles.scss'
 const MoviesPage = () => {
   const { movies } = useFetchData()
   return (
-    <div>
+    <>
       <SearchBar />
       <main className="main-content">
         <h2 className="h3">Popular Movies</h2>
@@ -22,7 +22,7 @@ const MoviesPage = () => {
           ))}
         </section>
       </main>
-    </div>
+    </>
   )
 }
 
