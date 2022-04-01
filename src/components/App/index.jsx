@@ -15,6 +15,9 @@ const App = () => {
         <Route path="/series" element={<SeriesPage />} />
       </Routes>
       <Footer />
+      <a className="back-top" href="#top">
+        ⬆️
+      </a>
     </div>
   )
 }

@@ -1,0 +1,44 @@
+@import '../../../index.scss';
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 288px);
+  justify-content: center;
+  gap: 2em;
+  .movie-card {
+    width: 288px;
+    position: relative;
+    cursor: pointer;
+    .movie-info {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      padding: 0 0.75em;
+      font-size: $text-sm;
+      background-color: rgba(0, 0, 0, 0.6);
+      &__title {
+        margin: 0.5em 0;
+        text-align: center;
+      }
+      &__description {
+        display: none;
+        margin: 0 0 1em;
+        &--show {
+          display: block;
+        }
+        &--mg-bt {
+          margin-bottom: 0.25em;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: $bp-tablet) {
+    & {
+      grid-template-columns: repeat(auto-fill, 227px);
+      gap: 1em;
+    }
+    .movie-card {
+      width: 227px;
+    }
+  }
+}
