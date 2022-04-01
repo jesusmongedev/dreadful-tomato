@@ -6,28 +6,45 @@ const AppContext = React.createContext('null')
 
 function AppProvider(props) {
   // Llamamos a nuestro Custom Hook con sus dos valores: El estado inicial y la funcion setState que permite actualizar el valor y re-renderizarlo
-  const { movies } = useFetchData()
+  const { movies, series } = useFetchData()
   const [searchTitleValue, setSearchTitleValue] = useState('')
+  const [searchYearValue, setSearchYearValue] = useState('')
 
-  let searchedByTitle = []
+  // Filter Movies by Title
+  let searchedMovieByTitle = []
 
   if (searchTitleValue === '') {
-    searchedByTitle = movies
+    searchedMovieByTitle = movies
   } else {
-    searchedByTitle = movies.filter((movie) => {
+    searchedMovieByTitle = movies.filter((movie) => {
       const movieTitle = movie.title.toLowerCase()
       const searchValue = searchTitleValue.toLowerCase()
       return movieTitle.includes(searchValue)
     })
-    console.log(searchedByTitle)
+  }
+
+  // Filter Series by Title
+  let searchedSeriesByTitle = []
+
+  if (searchTitleValue === '') {
+    searchedSeriesByTitle = series
+  } else {
+    searchedSeriesByTitle = series.filter((serie) => {
+      const serieTitle = serie.title.toLowerCase()
+      const searchValue = searchTitleValue.toLowerCase()
+      return serieTitle.includes(searchValue)
+    })
   }
 
   return (
     <AppContext.Provider
       value={{
-        searchedByTitle,
+        searchedMovieByTitle,
+        searchedSeriesByTitle,
         searchTitleValue,
         setSearchTitleValue,
+        searchYearValue,
+        setSearchYearValue,
       }}
     >
       {props.children}

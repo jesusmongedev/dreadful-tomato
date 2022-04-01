@@ -1,9 +1,10 @@
-import useFetchData from '../../customHooks/useFetchData'
+import { useContext } from 'react'
+import { AppContext } from '../../customHooks/useContext'
 import MovieCard from '../MoviesPage/MovieCard'
 import SearchBar from '../MoviesPage/SearchBar'
 
 const SeriesPage = () => {
-  const { series } = useFetchData()
+  const { searchedSeriesByTitle } = useContext(AppContext)
 
   return (
     <>
@@ -11,15 +12,17 @@ const SeriesPage = () => {
       <main className="main-content">
         <h2 className="h3">Popular Series</h2>
         <section className="movies-grid">
-          {series.map(({ images, title, description, releaseYear }, i) => (
-            <MovieCard
-              key={i}
-              movieImage={images['Poster Art'].url}
-              movieTitle={title}
-              movieDescription={description}
-              movieYear={releaseYear}
-            />
-          ))}
+          {searchedSeriesByTitle.map(
+            ({ images, title, description, releaseYear }, i) => (
+              <MovieCard
+                key={i}
+                movieImage={images['Poster Art'].url}
+                movieTitle={title}
+                movieDescription={description}
+                movieYear={releaseYear}
+              />
+            )
+          )}
         </section>
       </main>
     </>

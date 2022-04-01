@@ -3,11 +3,20 @@ import { AppContext } from '../../../customHooks/useContext'
 import './styles.scss'
 
 const SearchBar = () => {
-  const { searchTitleValue, setSearchTitleValue } = useContext(AppContext)
+  const {
+    searchTitleValue,
+    setSearchTitleValue,
+    searchYearValue,
+    setSearchYearValue,
+  } = useContext(AppContext)
 
   const handleTitleValue = (e) => {
     setSearchTitleValue(e.target.value)
-    console.log(searchTitleValue)
+  }
+
+  const handleYearValue = (e) => {
+    setSearchYearValue(e.target.value)
+    console.log(searchYearValue)
   }
 
   return (
@@ -22,7 +31,11 @@ const SearchBar = () => {
           onChange={handleTitleValue}
         />
       </div>
-      <input className="search-container__input" type="month" name="" id="" />
+      <input
+        className="search-container__input"
+        type="month"
+        onChange={handleYearValue}
+      />
     </div>
   )
 }

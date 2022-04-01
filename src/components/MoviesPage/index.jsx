@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 import './styles.scss'
 
 const MoviesPage = () => {
-  const { searchedByTitle } = useContext(AppContext)
+  const { searchedMovieByTitle } = useContext(AppContext)
 
   return (
     <>
@@ -15,7 +15,7 @@ const MoviesPage = () => {
       <main className="main-content">
         <h2 className="h3">Popular Movies</h2>
         <section className="movies-grid">
-          {searchedByTitle.map(
+          {searchedMovieByTitle.map(
             ({ images, title, description, releaseYear }, i) => (
               <MovieCard
                 key={i}

@@ -15,17 +15,14 @@ const useFetchData = () => {
 
           function groupBy(list, keyGetter) {
             const map = new Map()
-            console.log(map)
             list.forEach((item) => {
               const key = keyGetter(item)
-              // console.log(key)
               if (!map.has(key)) {
                 map.set(key, [item])
               } else {
                 map.get(key).push(item)
               }
             })
-            console.log(map)
             return map
           }
 
