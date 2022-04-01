@@ -1,22 +1,15 @@
 import { useContext } from 'react'
 import { AppContext } from '../../../customHooks/useContext'
 import './styles.scss'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 const SearchBar = () => {
-  const {
-    searchTitleValue,
-    setSearchTitleValue,
-    searchYearValue,
-    setSearchYearValue,
-  } = useContext(AppContext)
+  const { searchTitleValue, setSearchTitleValue, startDate, setStartDate } =
+    useContext(AppContext)
 
   const handleTitleValue = (e) => {
     setSearchTitleValue(e.target.value)
-  }
-
-  const handleYearValue = (e) => {
-    setSearchYearValue(e.target.value)
-    console.log(searchYearValue)
   }
 
   return (
@@ -31,10 +24,17 @@ const SearchBar = () => {
           onChange={handleTitleValue}
         />
       </div>
-      <input
+
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        showYearPicker
+        dateFormat="yyyy"
+        yearItemNumber={12}
+        startDate={new Date()}
+        maxDate={new Date()}
+        popperPlacement="bottom"
         className="search-container__input"
-        type="month"
-        onChange={handleYearValue}
       />
     </div>
   )

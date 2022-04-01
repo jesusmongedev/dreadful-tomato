@@ -50,6 +50,4 @@ map.get()
 
 ## Filter data by object's key value
 
-## React Date Picker
-
-## Slider with status bar
+- I use filter method to get it

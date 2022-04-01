@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { AppContext } from '../../customHooks/useContext'
-// import useFetchData from '../../customHooks/useFetchData'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import './styles.scss'

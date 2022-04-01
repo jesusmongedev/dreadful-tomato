@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import useFetchData from '../useFetchData'
 
-// React Hook useContext es un objeto con dos propiedades {Provider, Consumer}
+// React Hook useContext object with 2 properties {Provider, Consumer}
 const AppContext = React.createContext('null')
 
 function AppProvider(props) {
-  // Llamamos a nuestro Custom Hook con sus dos valores: El estado inicial y la funcion setState que permite actualizar el valor y re-renderizarlo
+  // customHook with the data grouped
   const { movies, series } = useFetchData()
   const [searchTitleValue, setSearchTitleValue] = useState('')
-  const [searchYearValue, setSearchYearValue] = useState('')
+  const [startDate, setStartDate] = useState(new Date())
+  let searchYearValue = startDate?.getFullYear()
+  console.log(startDate?.getFullYear())
 
   // Filter Movies by Title
   let searchedMovieByTitle = []
@@ -22,6 +24,21 @@ function AppProvider(props) {
       return movieTitle.includes(searchValue)
     })
   }
+
+  //*TODO Filter Movies by Year
+  // let searchedMovieByYear = []
+
+  // if (searchYearValue === '') {
+  //   searchedMovieByYear = movies
+  // } else {
+  //   searchedMovieByYear = movies.filter((movie) => {
+  //     const movieYear = movie.releaseYear?.toString()
+  //     console.log(movieYear)
+  //     const searchValue = searchYearValue
+  //     console.log(searchValue)
+  //     return movieYear.includes(searchValue)
+  //   })
+  // }
 
   // Filter Series by Title
   let searchedSeriesByTitle = []
@@ -44,7 +61,8 @@ function AppProvider(props) {
         searchTitleValue,
         setSearchTitleValue,
         searchYearValue,
-        setSearchYearValue,
+        startDate,
+        setStartDate,
       }}
     >
       {props.children}
