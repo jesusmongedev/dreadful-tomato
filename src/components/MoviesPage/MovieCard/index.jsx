@@ -6,20 +6,21 @@ const MovieCard = ({ movieImage, movieTitle, movieDescription, movieYear }) => {
   const [showDescription, setShowDescription] = useState(false)
 
   //   Show description when clicked
-  const handleDescription = (e) => {
+  const handleDescription = () => {
     setShowDescription((prevState) => !prevState)
   }
 
   return (
-    <article className="movie-card" onClick={(e) => handleDescription()}>
+    <article className="movie-card" onClick={handleDescription}>
       <img className="movie-card__img" src={movieImage} alt={movieTitle} />
       <div className="movie-info">
         <h3 className="movie-info__title">{movieTitle}</h3>
-        <MovieDescription
-          showDescription={showDescription}
-          movieDescription={movieDescription}
-          movieYear={movieYear}
-        />
+        {showDescription && (
+          <MovieDescription
+            movieDescription={movieDescription}
+            movieYear={movieYear}
+          />
+        )}
       </div>
     </article>
   )

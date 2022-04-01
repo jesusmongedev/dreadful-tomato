@@ -38,8 +38,18 @@ map.set()
 map.get()
 ```
 
-## React Date Picker
+## Build Movies and Series page
+
+### Header component in Movies and Series Page
+
+- To develop a dynamic Header component I used a react-router customHook "useLocation", to get the current pathname and using a ternary operator with two conditions if either or both is true will render the rest of the elements neccesaries for the Movies and Series Header.
+
+### Show description Movies and Series Cards
+
+- I achieved it using useState reat Hook to store a boolean value, depending of it will render the additional information.
 
 ## Filter data by object's key value
+
+## React Date Picker
 
 ## Slider with status bar

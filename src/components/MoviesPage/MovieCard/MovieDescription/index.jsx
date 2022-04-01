@@ -1,10 +1,6 @@
-const MovieDescription = ({ showDescription, movieDescription, movieYear }) => {
+const MovieDescription = ({ movieDescription, movieYear }) => {
   return (
-    <p
-      className={`movie-info__description ${
-        showDescription ? 'movie-info__description--show' : ''
-      }`}
-    >
+    <p className="movie-info__description">
       <span>🗓️ {movieYear}</span> <br />
       {movieDescription}
     </p>
