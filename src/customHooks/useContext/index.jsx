@@ -8,9 +8,10 @@ function AppProvider(props) {
   // customHook with the data grouped
   const { movies, series } = useFetchData()
   const [searchTitleValue, setSearchTitleValue] = useState('')
-  const [startDate, setStartDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(null)
+  const [filter, setFilter] = useState('')
   let searchYearValue = startDate?.getFullYear()
-  console.log(startDate?.getFullYear())
+  console.log(searchYearValue)
 
   // Filter Movies by Title
   let searchedMovieByTitle = []
@@ -26,19 +27,15 @@ function AppProvider(props) {
   }
 
   //*TODO Filter Movies by Year
-  // let searchedMovieByYear = []
 
-  // if (searchYearValue === '') {
-  //   searchedMovieByYear = movies
-  // } else {
-  //   searchedMovieByYear = movies.filter((movie) => {
-  //     const movieYear = movie.releaseYear?.toString()
-  //     console.log(movieYear)
-  //     const searchValue = searchYearValue
-  //     console.log(searchValue)
-  //     return movieYear.includes(searchValue)
-  //   })
-  // }
+  if (searchYearValue !== undefined) {
+    searchedMovieByTitle = movies.filter((movie) => {
+      const movieYear = movie.releaseYear?.toString()
+      // console.log(movieYear)
+      // console.log(searchValue)
+      return movieYear.includes(searchYearValue)
+    })
+  }
 
   // Filter Series by Title
   let searchedSeriesByTitle = []
@@ -53,6 +50,20 @@ function AppProvider(props) {
     })
   }
 
+  //*TODO Filter Movies by Year
+
+  if (searchYearValue !== undefined) {
+    searchedSeriesByTitle = series.filter((serie) => {
+      const serieYear = serie.releaseYear.toString()
+      return serieYear.includes(searchYearValue)
+    })
+  }
+
+  // Handle Filter selection
+  const handleFilter = () => {
+    setFilter(!filter)
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -63,6 +74,9 @@ function AppProvider(props) {
         searchYearValue,
         startDate,
         setStartDate,
+        filter,
+        setFilter,
+        handleFilter,
       }}
     >
       {props.children}

@@ -1,8 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useContext } from 'react'
 import './styles.scss'
+import { AppContext } from '../../customHooks/useContext'
 
 const Header = () => {
   const { pathname } = useLocation()
+  const { handleFilter } = useContext(AppContext)
 
   return (
     <header className="header" id="top">
@@ -36,7 +39,10 @@ const Header = () => {
               <span>Series</span>
             </div>
           </Link>
-          <div className="nav-container nav-container--end">
+          <div
+            className="nav-container nav-container--end"
+            onClick={handleFilter}
+          >
             <img
               src="https://i.postimg.cc/VdTyP5Bf/icon-filter.png"
               alt="icon movies"
