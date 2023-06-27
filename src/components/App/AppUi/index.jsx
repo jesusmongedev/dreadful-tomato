@@ -10,9 +10,9 @@ const AppUi = () => {
     <div className="wrapper">
       <Header />
       <Routes>
-        <Route path="/" element={<HomeMainContent />} />
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/series" element={<SeriesPage />} />
+        <Route path="/*" element={<HomeMainContent />} />
       </Routes>
       <Footer />
       <a className="back-top" href="#top">

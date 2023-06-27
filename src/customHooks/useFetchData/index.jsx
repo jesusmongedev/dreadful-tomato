@@ -8,6 +8,10 @@ const useFetchData = () => {
   // get all data
   useEffect(() => {
     const getMovies = async () => {
+      //TODO const response = await fetch('https://gitlab.com/-/snippets/2041384/raw/master/data.json')
+      // const data = await response.json()
+      //console.log(data)
+
       await fetch('https://gitlab.com/-/snippets/2041384/raw/master/data.json')
         .then((res) => res.json())
         .then((data) => {
